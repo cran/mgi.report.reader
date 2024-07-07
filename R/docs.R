@@ -4,6 +4,7 @@
 #' `r desc_package_name()`.
 #'
 #' @param marker_id A character vector. MGI accession identifiers.
+#' @param marker_symbol A character vector. MGI marker symbols.
 #'
 #' @param report_key A character vector. A key used to uniquely refer to an MGI
 #'   report.
@@ -42,7 +43,7 @@ desc_report_type <- function() {
 desc_report_name <- function() {
   paste(
     "MGI report name. Report names are taken from",
-    "\\url{", file.path(mgi_reports_base_url(), "index.html"), "}."
+    paste0("\\url{", mgi_reports_base_url(), "index.html", "}.")
   )
 }
 
@@ -70,30 +71,12 @@ desc_marker_status <- function() {
 
 desc_marker_type <- function() {
 
-'genetic marker type is a factor of 10 levels:
-
-  - `"Gene"`: A locus in the cytoplasmic or nuclear genome that is necessary and sufficient to express the complete complement of functional products derived from a unit of transcription.
-
-  - `"GeneModel"`: A representation of an mRNA transcript of a gene that contains information about features of the transcript such as exon-intron boundaries, splice sites, UTRs, etc.. Due to alternative splicing of mRNA transcripts, there may be more than one gene model for any given gene.
-
-  - `"Pseudogene"`: A non-functional locus derived from a functional locus either by:
-    1. replicative transfer, such as transposition, retrotransposition or duplication,
-    2. mutation, where the non-functional locus is not considered an allele of an existing functional locus in the mouse.
-  - `"DNA Segment"`: A genomic feature recognized by anonymous DNA probes: a segment of DNA not known to correspond to a named gene that can be used as a marker in the construction of genetic maps.
-  - `"Transgene"`: Any DNA sequence or combination of sequences that has been introduced via a construct into the germ line of the animal by random integration.
-
-  - `"QTL"`: Quantitative Trait Locus (QTL): the type of marker described by statistical association to quantitative variation in a particular phenotypic trait that is thought to be controlled by the cumulative action of alleles at multiple loci.
-  - `"Cytogenetic Marker"`: A structure within a chromosome that is visible by microscopic examination, possibly after special staining methods are used.
-
-  - `"BAC/YAC end"`: BAC/YAC end refers to sequences at the end of foreign DNA inserts in a BAC or YAC. These sequences are a source of Sequence Tagged Sites (STSs) to determine the extent of overlap between Bacterial Artificial Chromosomes (BACs) or Yeast Artificial Chromosome (YACs) and to aid in the alignment of sequence contigs.
-
-  - `"Complex/Cluster/Region"`: Refers to any of the following:
-    1. Gene complex; a group of genes closely linked together that are related evolutionarily or functionally. Interspersed unrelated genes located within the group are included.
-    2. A segment of the mouse genome defined by comparison to an orthologous segment in the genome of another species, or by some specific characteristic, such as loss of heterozygosity.
-    3. A marker repository for information pertaining to a specific gene family, where such information lacks precise family member resolution.
-
-  - `"Other Genome Feature"`: Refers to any feature of the genome that is considered to have biological significance but that cannot be classified with defined marker types. Major classes of other genome features include Endogenous Viruses and Retrotransposons, Integration Sites, and Repetitive Elements. An additional class of such features includes genomic segments that function or are biologically significant as DNA elements.
-  '
+  paste0(
+    'genetic marker type is a factor of 10 levels: ',
+    paste(marker_types(), collapse = ", "),
+    ". ",
+    "See `?marker_type_definitions` for the meaning of each type."
+  )
 }
 
 desc_marker_id <- function() {
@@ -116,7 +99,7 @@ desc_marker_name <- function() {
 
 desc_feature_type <- function() {
   paste("an attribute of a portion of a genomic sequence. See the dataset",
-        "`?feature_types` for details.")
+        "`?feature_type_definitions` for details.")
 }
 
 desc_chromosome <- function() {

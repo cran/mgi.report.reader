@@ -1,6 +1,6 @@
 Package: mgi.report.reader
 Title: Read Mouse Genome Informatics Reports
-Version: 0.1.2
+Version: 0.1.3
 Authors@R: c(
     person("Ramiro", "Magno", , "rmagno@pattern.institute", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-5226-3441")),
@@ -31,7 +31,8 @@ Encoding: UTF-8
 RoxygenNote: 7.3.1
 Depends: R (>= 2.10)
 LazyData: true
-Imports: data.table, dplyr, httr2, rlang, stringr, tibble, vroom
+Imports: data.table, dplyr, httr2, memoise, rlang, stringr, tibble,
+        vroom
 URL: https://www.pattern.institute/mgi.report.reader/,
         https://github.com/patterninstitute/mgi.report.reader/
 BugReports: https://github.com/patterninstitute/mgi.report.reader/issues
@@ -39,7 +40,7 @@ Config/Needs/website: rmarkdown, patterninstitute/chic
 Suggests: testthat (>= 3.0.0), tidyr
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2024-07-05 18:42:19 UTC; rmagno
+Packaged: 2024-07-07 01:17:19 UTC; rmagno
 Author: Ramiro Magno [aut, cre] (<https://orcid.org/0000-0001-5226-3441>),
   David Shaw [aut] (<https://orcid.org/0000-0002-9922-9934>),
   Isabel Duarte [aut] (<https://orcid.org/0000-0003-0060-2936>),
@@ -51,4 +52,4 @@ Author: Ramiro Magno [aut, cre] (<https://orcid.org/0000-0001-5226-3441>),
   Pattern Institute [cph, fnd]
 Maintainer: Ramiro Magno <rmagno@pattern.institute>
 Repository: CRAN
-Date/Publication: 2024-07-05 21:20:02 UTC
+Date/Publication: 2024-07-07 14:50:02 UTC
